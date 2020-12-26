@@ -1,0 +1,220 @@
+/* * { */
+  /* border: 1.5px solid black; */
+/* } */
+
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 25px;
+  color: black;
+  /* fun font */
+  font-family: 'Architects Daughter', cursive;
+}
+
+.fullPage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  /* background-image: url(https://imgur.com/3AGzYr9.jpg); */
+  /* opacity: 0.3; */
+  filter: alpha(opacity=20);
+}
+
+.form {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.soap-cost {
+  grid-area: soap-cost;
+  /* background-color:  #69967e; */
+  text-align: center;
+  font-size: 18px;
+}
+
+.soap-ingredients {
+  grid-area: soap-ingredients;
+  /* background-color:  #69967e; */
+  text-align: center;
+  font-size: 18px;
+}
+
+.soap-lye-weight {
+  grid-area: soap-lye-weight;
+  /* background-color:  #69967e; */
+  text-align: center;
+  font-size: 18px;
+}
+
+.name-image {
+  grid-area: name-image;
+  /* background-color:  #69967e; */
+  text-align: center;
+  font-size: 18px;
+}
+
+/* =========== grid container SHOW & EDIT page =========== */
+.soap-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 400px 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
+  flex-grow: 1;
+  background-color:  #69967e;
+
+  grid-template-areas:
+  "nav nav nav nav"
+  "header header header header"
+  "side-bar soap-ingredients soap-lye-weight soap-cost"
+  "footer footer footer footer";
+}
+
+/* =========== grid container NEW page =========== */
+.new-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 400px 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
+  flex-grow: 1;
+  background-color:  #69967e;
+
+  grid-template-areas:
+  "nav nav nav nav"
+  "header header header header"
+  "name-image soap-ingredients soap-lye-weight soap-cost"
+  "footer footer footer footer";
+}
+
+/* =========== grid container index page =========== */
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 300px 400fr;
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-areas:
+  "nav nav nav nav"
+  "header header header header"
+  "side-bar soap-list soap-list soap-list"
+  "footer footer footer footer";
+}
+
+/* =========== grid container MAIN items =========== */
+
+.nav {
+  grid-area: nav;
+  background-color: #ccc49b;
+}
+
+.header {
+  grid-area: header;
+  background-color: #bf9975;
+  color: black;
+  text-align: center;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #ccc49b;
+  display: flex;
+  flex: space-evenly;
+  flex-direction: row;
+  font-size: 10px;
+}
+
+.side-bar {
+  grid-area: side-bar;
+  background-color: #69967e;
+  text-align: center;
+}
+
+.soap-list {
+  grid-area: soap-list;
+  background-color: #69967e;
+  align-items: center;
+}
+/* ====================== misc ======================= */
+a {
+  color: white;
+  text-decoration: none;
+}
+h1 {
+  color: black;
+  text-align: center;
+}
+
+h2, h3 {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* w3schools */
+table, th, td {
+  border: 1px solid black;
+}
+/* ==================== buttons ====================== */
+
+.button {
+  /* w3schools */
+  background-color: #dea97e;
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.inputSm {
+  background-color: #e6e0dc;
+  height: 18px;
+  width: 50px;
+  border: none;
+  color: black;
+  margin: 3px 1px;
+  text-align: right;
+}
+
+.inputMed {
+  background-color: #e6e0dc;
+  height: 18px;
+  width: 150px;
+  border: none;
+  color: black;
+  margin: 3px 1px;
+}
+
+.inputNotes {
+  background-color: #e6e0dc;
+  width: 50%;
+  border-radius: 10px 10px 10px 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow: auto;
+  color: black;
+  margin: 3px 1px;
+}
+
+.inputLg {
+  background-color: #e6e0dc;
+  height: 18px;
+  width: 150px;
+  border: none;
+  color: black;
+  margin: 3px 1px;
+}
+
+.form-button {
+  background-color: #dea97e;
+  height: 18px;
+  width: 150px;
+  border: none;
+  color: black;
+  margin: 3px 1px;
+}

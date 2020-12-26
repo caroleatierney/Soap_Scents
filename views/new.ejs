@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <!-- header -->
+  <%- include('./partials/header.ejs') %>
+
+  <body>
+
+    <div class="new-container">
+
+        <div class="nav">
+            <button type="button" name="button" class="button"><a href="/soap" style="text-decoration: none">BACK TO SOAP INDEX</a></button>
+            <h1>Soap Scents</h1>
+        </div>
+
+        <div class="header">
+          <h2>Enter a New Soap</h2>
+        </div>
+
+        <form action="/soap/" class="form" method="POST">
+
+            <div class="name-image">
+              <h3> Soap Name and Image </h3>
+                  <label for="name">Soap Name:</label>
+                  <input class ="inputLg" type="text" name="name" required /><br>
+
+                  <label for="image">Soap Image:</label>
+                  <input class ="inputLg" type="text" name="image" required /><br>
+            </div>
+
+            <div class="soap-ingredients">
+
+              <table id="Ingredients">
+                  <tr>
+                    <th>Ingredient</th>
+                    <th> Amount in ounces</th>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient1" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount1" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient2" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount2" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient3" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount3" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient4" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount4" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient5" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount5" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient6" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount6" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient7" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount7" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="ingredient8" required /></td>
+                    <td><input class ="inputSm" type="number" name="amount8" required /></td>
+                  </tr>
+
+              </table>
+
+            </div>
+
+            <div class="soap-cost">
+                <h3>Purchase Information</h3>
+                    <label for="costPerBar">Cost Per Bar</label>
+                    <input class ="inputSm" type="number" name="costPerBar" /><br>
+                    <label for="costPerPound">Cost Per Pound</label>
+                    <input class ="inputSm" type="number" name="costPerPound" /><br>
+                    <label for="addCostToGiftWrapPerBar">Cost to Gift Wrap Per Bar</label>
+                    <input class ="inputSm" type="number" name="addCostToGiftWrapPerBar" /><br>
+                    <label for="totalBarsAvail">Bars Available</label>
+                    <input class ="inputSm" type="number" name="totalBarsAvail" /><br>
+
+                <h3>Additional Information</h3>
+                    <label for="percentSuperFat"> Super Fat</label>
+                    <input class ="inputSm" type="number" name="percentSuperFat"><br>
+                    <label for="exfoliating">Exfoliating</label>
+                    <input class ="inputMed" type="boolean" name="exfoliating" required/><br>
+                    <label for="notes">Notes</label>
+                    <input class ="inputNotes" type="text" name="notes" /><br>
+            </div>
+
+            <div class="soap-lye-weight">
+                <h3> Lye Calculation </h3>
+                    <label for="minimumWaterNeeded">Minimum Water Needed</label>
+                    <input class ="inputSm" type="number" name="minimumWaterNeeded" /><br>
+                    <label for="sodiumHydroxide">Sodium Hydroxide</label>
+                    <input class ="inputSm" type="number" name="sodiumHydroxide" /><br>
+
+                <h3> Weights </h3>
+                    <label for="totalOilsWeight">Total Oils Weight</label>
+                    <input class ="inputSm" type="number" name="totalOilsWeight" /><br>
+                    <label for="totalRecipeWeight">Total Recipe Weight</label>
+                    <input class ="inputSm" type="number" name="totalRecipeWeight" /><br>
+
+                    <input class="button" type="submit" value="SUBMIT NEW SOAP"/><br>
+
+            </div>
+      </form>
+
+    </div>
+
+    <!-- footer -->
+    <%- include('./partials/footer.ejs') %>
+
+    </div>
+  </body>
+</html>

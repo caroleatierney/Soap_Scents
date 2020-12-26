@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <!-- header -->
+  <%- include('./partials/header.ejs') %>
+
+  <body>
+
+  <div class="soap-container">
+
+      <div class="nav">
+            <button type="button" name="button" class="button"><a href="/soap" style="text-decoration: none">BACK TO SOAP INDEX</a></button>
+            <h1>Soap Scents</h1>
+      </div>
+
+      <div class="header">
+        <h2><%=soap.name%></h2>
+      </div>
+
+      <div class="side-bar">
+        <img src = <%=soap.image + ".jpg"%> alt="Soap Image" width="100%" height="100%">
+      </div>
+
+      <div class="soap-ingredients">
+        <h3> Ingredients </h3>
+        <!-- Only display if there is an ingredient -->
+        <%if (soap.ingredients.amount1 > 0) { %>
+          <%=soap.ingredients.ingredient1%>:   <%=soap.ingredients.amount1%><br>
+        <%}%>
+
+        <%if (soap.ingredients.amount2 > 0) { %>
+          <%=soap.ingredients.ingredient2%>:   <%=soap.ingredients.amount2%><br>
+        <%}%>
+
+        <%if (soap.ingredients.amount3 > 0) { %>
+          <%=soap.ingredients.ingredient3%>:   <%=soap.ingredients.amount3%><br>
+        <%}%>
+
+        <%if (soap.ingredients.amount4 > 0) { %>
+          <%=soap.ingredients.ingredient4%>:   <%=soap.ingredients.amount4%><br>
+        <%}%>
+
+        <%if (soap.ingredients.amount5 > 0) { %>
+          <%=soap.ingredients.ingredient5%>:   <%=soap.ingredients.amount5%><br>
+        <%}%>
+
+        <%if (soap.ingredients.amount6 > 0) { %>
+          <%=soap.ingredients.ingredient6%>:   <%=soap.ingredients.amount6%><br>
+        <%}%>
+
+        <%if (soap.ingredients.amount7 > 0) { %>
+          <%=soap.ingredients.ingredient7%>:   <%=soap.ingredients.amount7%><br>
+        <%}%>
+
+        <%if (soap.ingredients.amount8 > 0) { %>
+          <%=soap.ingredients.ingredient8%>:   <%=soap.ingredients.amount8%><br>
+        <%}%>
+
+      </div>
+
+      <div class="soap-cost">
+          <h3>Purchase Information</h3>
+           Cost Per Bar: <%=soap.costPerBar%> <br>
+           Cost Per Pound: <%=soap.costPerPound%> <br>
+           Cost per Bar to gift wrap:  <%=soap.addCostToGiftWrapPerBar%> <br>
+           Bars Available for Purchase:  <%=soap.totalBarsAvail%> <br>
+
+           <h3>Additional Information</h3>
+           % Super Fat:  <%=soap.percentSuperFat%> <br>
+           Exfoliating? <%=soap.exfoliating%> <br>
+           Notes: <%=soap.notes%> <br>
+       </div>
+
+       <div class="soap-lye-weight">
+         <h3> Lye Calculation </h3>
+         Minimum Water Needed: <%=soap.lyeCalculation.minimumWaterNeeded%><br>
+         Sodium Hydroxide:  <%=soap.lyeCalculation.sodiumHydroxide%><br>
+
+         <h3> Weights </h3>
+         Total Oils Weight: <%=soap.totalOilsWeight%><br>
+         Total Recipe Weight: <%=soap.totalRecipeWeight%><br>
+       </div>
+
+       <!-- footer -->
+       <%- include('./partials/footer.ejs') %>
+
+      </div>
+    </div>
+  </body>
+</html>

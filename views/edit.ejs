@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <!-- header -->
+  <%- include('./partials/header.ejs') %>
+
+  <body>
+
+    <div class="soap-container">
+
+        <div class="nav">
+            <button type="button" name="button" class="button"><a href="/soap" style="text-decoration: none">BACK TO SOAP INDEX</a></button>
+            <h1>Soap Scents</h1>
+        </div>
+
+        <div class="header">
+          <h2>Edit <%=soap.name%></h2>
+        </div>
+
+        <form action="/soap/<%=soap.id%>?_method=PUT" class="form" method="POST">
+
+            <div class="side-bar">
+              <img src = <%=soap.image + ".jpg"%> alt="Soap Image" width="100%" height="100%">
+            </div>
+
+          <div class="soap-ingredients">
+
+            <label for="name">Soap Name:</label>
+            <input type="text"   class ="inputLg" name="name"   value="<%=soap.name%>"<br />
+
+            <label for="name">Soap Image:</label>
+            <input type="text"   class ="inputLg" name="image"   value="<%=soap.image%>" <br />
+
+              <table id="Ingredients">
+                  <tr>
+                    <th>Ingredient</th>
+                    <th> Amount in ounces</th>
+                  </tr>
+                  <tr>
+                      <%if (soap.ingredients.amount1 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient1" value="<%=soap.ingredients.ingredient1%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount1" value="<%=soap.ingredients.amount1%>"</td>
+                      <%}%>
+                  <tr>
+                      <%if (soap.ingredients.amount2 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient2" value="<%=soap.ingredients.ingredient2%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount2" value="<%=soap.ingredients.amount2%>"</td>
+                      <%}%>
+                  </tr>
+                  <tr>
+                      <%if (soap.ingredients.amount3 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient3" value="<%=soap.ingredients.ingredient3%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount3" value="<%=soap.ingredients.amount3%>"</td>
+                      <%}%>
+                  </tr>
+                  <tr>
+                      <%if (soap.ingredients.amount4 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient4" value="<%=soap.ingredients.ingredient4%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount4" value="<%=soap.ingredients.amount4%>"</td>
+                      <%}%>
+                  </tr>
+                  <tr>
+                      <%if (soap.ingredients.amount5 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient5" value="<%=soap.ingredients.ingredient5%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount5" value="<%=soap.ingredients.amount5%>"</td>
+                      <%}%>
+                  <tr>
+                      <%if (soap.ingredients.amount6 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient6" value="<%=soap.ingredients.ingredient6%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount6" value="<%=soap.ingredients.amount6%>"</td>
+                      <%}%>
+                  </tr>
+                  <tr>
+                      <%if (soap.ingredients.amount7 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient7" value="<%=soap.ingredients.ingredient7%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount7" value="<%=soap.ingredients.amount7%>"</td>
+                      <%}%>
+                  </tr>
+                  <tr>
+                      <%if (soap.ingredients.amount8 > 0) { %>
+                          <td><input class ="inputMed" type="text" name="ingredient8" value="<%=soap.ingredients.ingredient8%>"</td>
+                          <td><input class ="inputSm" type="number" name="amount8" value="<%=soap.ingredients.amount8%>"</td>
+                      <%}%>
+                  </tr>
+            </table>
+
+            <input class="form-button" type="submit" value="SUBMIT CHANGES"/><br>
+
+          </div>
+
+        <div class="soap-lye-weight">
+                <h3> Lye Calculation </h3>
+                % Minimum Water Needed: <input class ="inputSm" type="number" name="minimumWaterNeeded" value="<%=soap.lyeCalculation.minimumWaterNeeded%>" /><br>
+                % Sodium Hyroxide: <input class ="inputSm" type="number" name="sodiumHydroxide" value="<%=soap.lyeCalculation.sodiumHydroxide%>" /><br>
+
+                <h3> Weights </h3>
+                Total Oils Weight: <input class ="inputSm" type="number" name="totalOilsWeight" value="<%=soap.totalOilsWeight%>" /><br>
+                Total Recipe Weight: <input class ="inputSm" type="number" name="totalRecipeWeight" value="<%=soap.totalRecipeWeight%>" /><br>
+        </div>
+
+        <div class="soap-cost">
+              <h3>Purchase Information</h3>
+              Cost per Bar:   <input class ="inputSm" type="number" name="costPerBar"     value="<%=soap.costPerBar%>" /><br>
+              Cost per Pound: <input class ="inputSm" type="number" name="costPerPound" value="<%=soap.costPerPound%>" /><br>
+              Cost per Bar to Giftwrap: <input class ="inputSm" type="number" name="addCostToGiftWrapPerBar" value="<%=soap.addCostToGiftWrapPerBar%>" /><br>
+              Bars Available for Purchase: <input class ="inputSm" type="number" name="totalBarsAvail" value="<%=soap.totalBarsAvail%>" /><br>
+
+              <h3>Additional Information</h3>
+              % Super Fat: <input class ="inputSm" type="number" name="percentSuperFat" value="<%=soap.percentSuperFat%>"/><br>
+              Exfoliating? <input class="inputMed" type="text" name="exfoliating" value="<%=soap.exfoliating%>"/><br>
+              Notes: <input class ="inputNotes" type="text" name="notes" value="<%=soap.notes%>"/><br>
+        </div>
+
+      </form>
+
+    </div>
+
+    <!-- footer -->
+    <%- include('./partials/footer.ejs') %>
+
+    </div>
+  </body>
+</html>

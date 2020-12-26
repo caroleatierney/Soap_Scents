@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- header -->
+    <%- include('./partials/header.ejs') %>
+
+    <body>
+    <div class="grid-container">
+
+      <div class="nav">
+        <button type="button" name="button" class="button"><a href="/soap/new" style="text-decoration: none">ENTER A NEW SOAP</a></button>
+        <h1>Welcome to Soap Scents</h1>
+      </div>
+      <div class="header">
+        <h2>Available Soaps</h2>
+      </div>
+
+      <div class="side-bar">
+      </div>
+
+          <div class="soap-list">
+
+              <ul>
+                  <% for(let i = 0; i < soap.length; i++){ %>
+                    <li>
+                        <form action="<%=soap[i].id%>?_method=DELETE" method="POST">
+                              <a href="/soap/<%=i%>" style="text-decoration: none;"><%=soap[i].name%></a>
+                              <!-- <img src = <%=soap.image + ".jpg"%><a href="/soap/<%=i%>" alt="Soap Image" width="100%" height="100%"> -->
+                              <!-- Delete button/form -->
+                              <input type="submit" value="DELETE" class="button" />
+                              <!-- Edit link -->
+                              <a href="/soap/<%=soap[i].id%>/edit" class="button">EDIT</a>
+                          </form>
+                    </li>
+                  <% } %>
+              </ul>
+
+            </div>
+
+        <!-- footer -->
+        <%- include('./partials/footer.ejs') %>
+
+      </div>
+    </body>
+</html>
