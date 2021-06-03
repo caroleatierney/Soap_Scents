@@ -1,17 +1,6 @@
 # Link to Soap Scents app: https://damp-reef-08648.herokuapp.com/soap/new
 
-## by Carole Tierney: [github](https://github.com/caroleatierney)]
-
-
-## App for Marshfield residents and/or vacationers to learn about all the beaches we have to visit.
-
-
-### Project Links
-* Heroku marshfieldbeachapp: *https://floating-reaches-51954.herokuapp.com/*
-* Trello: *https://trello.com/b/D7GnYxrf/final-portfolio*
-* Mockflow Wireframe: *https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M74351f7b2fb4dfb52442123cd75568c21603478861759&publicid=04ce9bfd28704b0dae7c43c96418cd9e#/page/53ae0be0d3f140308532deda98bf03b2
-
-### The app I created uses the following technologies: HTML, CSS, Javascript, PERN stack: Postgres Express React Node.
+## by Carole Tierney: [github](https://github.com/caroleatierney)
 
 ### The app I created uses the following technologies:
 - [x] HTML
