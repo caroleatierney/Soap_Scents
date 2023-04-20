@@ -24,8 +24,9 @@
                   <% for(let i = 0; i < soap.length; i++){ %>
                     <li>
                         <form action="<%=soap[i].id%>?_method=DELETE" method="POST">
+                          <img src = <%=soap[i].image + ".jpg"%> alt="Soap Image" width="30%" height="30%">
+                          <!-- <img src = <%=soap.image + ".jpg"%><a href="/soap/<%=i%>" alt="Soap Image" width="100%" height="100%"> -->
                               <a href="/soap/<%=i%>" style="text-decoration: none;"><%=soap[i].name%></a>
-                              <!-- <img src = <%=soap.image + ".jpg"%><a href="/soap/<%=i%>" alt="Soap Image" width="100%" height="100%"> -->
                               <!-- Delete button/form -->
                               <input type="submit" value="DELETE" class="button" />
                               <!-- Edit link -->
