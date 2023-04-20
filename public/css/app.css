@@ -74,6 +74,8 @@ body {
   display: grid;
   grid-template-rows: 1fr 1fr 400px 1fr;
   grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
+
   flex-wrap: wrap;
   flex-grow: 1;
   background-color:  #69967e;
@@ -109,7 +111,7 @@ body {
 .header {
   grid-area: header;
   background-color: #bf9975;
-  color: black;
+  color: white;
   text-align: center;
 }
 
@@ -129,6 +131,8 @@ body {
 }
 
 .soap-list {
+  display: flex;
+  flex-direction: column;
   grid-area: soap-list;
   background-color: #69967e;
   align-items: center;
@@ -139,7 +143,7 @@ a {
   text-decoration: none;
 }
 h1 {
-  color: black;
+  color: white;
   text-align: center;
 }
 
