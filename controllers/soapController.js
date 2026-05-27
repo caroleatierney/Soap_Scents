@@ -36,15 +36,14 @@ const soapSeed = require('../models/soapSeed')
 // ****************************************
 // ************ INDEX ROUTE   *************
 // ****************************************
-router.get('/soap', (req, res)=>  {
-  // res.send('index');
-  Soap.find({}, (error, allSoap)=>  {
-    res.render(
-      'index.ejs',
-      {
-      soap:allSoap,
-      });
-  });
+router.get("/soap", async (req, res) => {
+  try {
+    const allSoap = await Soap.find({});
+    res.render("index.ejs", { soap: allSoap });
+  } catch (error) {
+    console.error("Database error:", error);
+    res.status(500).send("Error fetching soap data");
+  }
 });
 
 // ****************************************
@@ -60,30 +59,29 @@ router.get('/soap/new', (req, res) => {
 // ****************************************
 // *************  EDIT ROUTE   ************
 // ****************************************
-router.get('/soap/:id/edit', (req, res)=> {
-    // res.send('edit route');
-    Soap.findById(req.params.id, (err, foundSoap)=>{
-        res.render(
-    		'edit.ejs',
-    		{
-          soap: foundSoap,
-    		}
-    	);
-    });
+
+router.get("/soap/:id/edit", async (req, res) => {
+  try {
+    const foundSoap = await Soap.findById(req.params.id);
+    res.render("edit.ejs", { soap: foundSoap });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error loading edit page");
+  }
 });
 
 // ****************************************
 // ************** SHOW ROUTE **************
 // ****************************************
 // set up soap show route and display parameters of soap selected by user
-router.get('/soap/:id', (req, res)=>  {
-  // res.send('show');
-  // res.send(req.params.id)
-Soap.findById(req.params.id, (err, foundSoap) => {
-    res.render("show.ejs", {
-      soap: foundSoap,
-    });
-  });
+router.get("/soap/:id", async (req, res) => {
+  try {
+    const foundSoap = await Soap.findById(req.params.id);
+    res.render("show.ejs", { soap: foundSoap });
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Soap not found");
+  }
 });
 
 // ****************************************
