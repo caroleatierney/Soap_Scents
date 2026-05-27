@@ -1,5 +1,5 @@
 {
-  "name": "project2",
+  "name": "Soap_Scents",
   "version": "1.0.0",
   "engines": {
     "node": "12.18.3 "
@@ -12,14 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caroleatierney/Project2.git"
+    "url": "git+https://github.com/caroleatierney/Soap_Scents.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/caroleatierney/Project2/issues"
-  },
-  "homepage": "https://github.com/caroleatierney/Project2#readme",
+  "homepage": "https://github.com/caroleatierney/Soap_Scents.git",
   "dependencies": {
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",

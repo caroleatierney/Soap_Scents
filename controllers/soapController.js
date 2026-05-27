@@ -37,11 +37,9 @@ const soapSeed = require('../models/soapSeed')
 // ** REDIRECT TO SOAP INDEX UPON ENTRY **
 // ***************************************
 
-// %%%% NOT WORKING
-
-// app.get('/' , (req, res) => {
-   // res.redirect('/soap');
-// });
+app.get('/' , (req, res) => {
+   res.redirect('/soap');
+});
 
 // ****************************************
 // ************ INDEX ROUTE   *************
