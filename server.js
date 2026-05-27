@@ -8,6 +8,8 @@ const app = express()
 const db = mongoose.connection
 const soapController = require('./controllers/soapController.js')
 app.set("view engine", "ejs");
+app.use(express.static("public"));
+
 require('dotenv').config()
 // ******************************
 // ************ PORT ************

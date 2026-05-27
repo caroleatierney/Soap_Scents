@@ -1,4 +1,4 @@
-# Link to Soap Scents app:
+# Link to Soap Scents app: https://soap-scents.onrender.com
 
 ## by Carole Tierney: [github](https://github.com/caroleatierney)
 
