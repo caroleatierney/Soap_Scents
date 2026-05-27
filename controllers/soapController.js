@@ -27,11 +27,11 @@ const soapSeed = require('../models/soapSeed')
 // ** POPULATE WITH SEED DATA ***
 // ******************************
 // ** remove after running once
-Soap.create( soapSeed, ( err , data ) => {
-      if ( err ) console.log ( err.message )
-          console.log( "added provided soap data" )
-      }
-);
+// Soap.create( soapSeed, ( err , data ) => {
+//       if ( err ) console.log ( err.message )
+//           console.log( "added provided soap data" )
+//       }
+// );
 
 // ****************************************
 // ************ INDEX ROUTE   *************
@@ -79,15 +79,10 @@ router.get('/soap/:id/edit', (req, res)=> {
 router.get('/soap/:id', (req, res)=>  {
   // res.send('show');
   // res.send(req.params.id)
-  Soap.find({}, (error, allSoap)=>  {
-    res.render(
-      'show.ejs',
-      {
-      // soap is a variable
-      // soaps[req.params.id] is the value
-      soap:allSoap[req.params.id]
-      }
-    );
+Soap.findById(req.params.id, (err, foundSoap) => {
+    res.render("show.ejs", {
+      soap: foundSoap,
+    });
   });
 });
 
@@ -146,7 +141,7 @@ router.put('/soap/:id', (req, res)=>{
           notes: req.body.notes
         }
 
-        // console.log(editSoap)
+        console.log(editSoap)
         Soap.findByIdAndUpdate(
           req.params.id,
           editSoap,

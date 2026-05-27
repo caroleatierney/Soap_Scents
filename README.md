@@ -1,4 +1,4 @@
-# Link to Soap Scents app: https://damp-reef-08648.herokuapp.com/soap/new
+# Link to Soap Scents app: https://damp-reef-08648.herokuapp.com/soap
 
 ## by Carole Tierney: [github](https://github.com/caroleatierney)
 
@@ -67,4 +67,4 @@
 * used a table for editing
 
 ** 4/21/2023 Added Procfile
-* Test Change on 4/22
+** 5/27/2026 - Set up to be hosted on Render
