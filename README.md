@@ -1,4 +1,4 @@
-# Link to Soap Scents app: https://damp-reef-08648.herokuapp.com/soap
+# Link to Soap Scents app:
 
 ## by Carole Tierney: [github](https://github.com/caroleatierney)
 
