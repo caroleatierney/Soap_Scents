@@ -44,4 +44,3 @@ const soapSchema = new Schema(
 // has to be below soapSchema initialization
 const Soap = mongoose.model('Soap', soapSchema);
 module.exports = Soap
-© 20

@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const app = express()
 const db = mongoose.connection
 const soapController = require('./controllers/soapController.js')
+app.set("view engine", "ejs");
 require('dotenv').config()
 // ******************************
 // ************ PORT ************
@@ -16,22 +17,13 @@ const PORT = process.env.PORT
 // ******************************
 // ***********  MONGO ***********
 // ******************************
-// Connect to Mongo &
-// Fix Depreciation Warnings from Mongoose
-// May or may not need these depending on your Mongoose version
-const MONGODB_URI = process.env.MONGODB_URI
-mongoose.connect(MONGODB_URI ,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 // ******************************
 // ******* ERROR/SUCCESS ********
 // ******************************
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on("connected", () => console.log("mongo connected successfully!"));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 // ******************************

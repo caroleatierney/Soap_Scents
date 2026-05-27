@@ -33,14 +33,6 @@ const soapSeed = require('../models/soapSeed')
 //       }
 // );
 
-// ***************************************
-// ** REDIRECT TO SOAP INDEX UPON ENTRY **
-// ***************************************
-
-app.get('/' , (req, res) => {
-   res.redirect('/soap');
-});
-
 // ****************************************
 // ************ INDEX ROUTE   *************
 // ****************************************
@@ -87,15 +79,10 @@ router.get('/soap/:id/edit', (req, res)=> {
 router.get('/soap/:id', (req, res)=>  {
   // res.send('show');
   // res.send(req.params.id)
-  Soap.find({}, (error, allSoap)=>  {
-    res.render(
-      'show.ejs',
-      {
-      // soap is a variable
-      // soaps[req.params.id] is the value
-      soap:allSoap[req.params.id]
-      }
-    );
+Soap.findById(req.params.id, (err, foundSoap) => {
+    res.render("show.ejs", {
+      soap: foundSoap,
+    });
   });
 });
 
@@ -154,7 +141,7 @@ router.put('/soap/:id', (req, res)=>{
           notes: req.body.notes
         }
 
-        // console.log(editSoap)
+        console.log(editSoap)
         Soap.findByIdAndUpdate(
           req.params.id,
           editSoap,
