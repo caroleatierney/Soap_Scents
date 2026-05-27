@@ -27,13 +27,13 @@ const soapSeed = require('../models/soapSeed')
 // ** POPULATE WITH SEED DATA ***
 // ******************************
 // ** remove after running once
-Soap.create(soapSeed)
-  .then((data) => {
-    console.log("added provided soap data");
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
+// Soap.create(soapSeed)
+//   .then((data) => {
+//     console.log("added provided soap data");
+//   })
+//   .catch((err) => {
+//     console.log(err.message);
+//   });
 
 // ****************************************
 // ************ INDEX ROUTE   *************
