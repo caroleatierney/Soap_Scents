@@ -216,7 +216,7 @@ let newSoap = {
 // ****************************************
 // ***********  DELETE ROUTE  *************
 // ****************************************
-router.delete('/:id', (req, res)=>{
+router.delete('/soap/:id', (req, res)=>{
 // console.log("in log/delete");
 // res.send('deleting...');
   Soap.findByIdAndRemove(

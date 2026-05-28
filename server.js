@@ -1,6 +1,7 @@
 // ******************************
 // ******* DEPENDENCIES *********
 // ******************************
+require("dotenv").config();
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
@@ -8,13 +9,11 @@ const app = express()
 const db = mongoose.connection
 const soapController = require('./controllers/soapController.js')
 app.set("view engine", "ejs");
-app.use(express.static("public"));
 
 app.get('/', (req, res) => {
   res.redirect('/soap');
 });
 
-require('dotenv').config()
 // ******************************
 // ************ PORT ************
 // ******************************
@@ -28,9 +27,9 @@ mongoose.connect(process.env.MONGODB_URI);
 // ******************************
 // ******* ERROR/SUCCESS ********
 // ******************************
-db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on("connected", () => console.log("mongo connected successfully!"));
-db.on('disconnected', () => console.log('mongo disconnected'));
+db.on('error', (err) => console.log(err.message + ' is MongoDB not running?'));
+db.on("connected", () => console.log("Mongo connected successfully!"));
+db.on('disconnected', () => console.log('Mongo disconnected'));
 
 // ******************************
 // ********  MIDDLEWARE *********

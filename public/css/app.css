@@ -91,14 +91,13 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-rows: 1fr 1fr 300px 400fr;
   grid-template-columns: repeat(4, 1fr);
-
+  grid-template-rows: auto auto auto auto;
   grid-template-areas:
-  "nav nav nav nav"
-  "header header header header"
-  "side-bar soap-list soap-list soap-list"
-  "footer footer footer footer";
+    "nav nav nav nav"
+    "header header header header"
+    "side-bar soap-list soap-list soap-list"
+    "footer footer footer footer";
 }
 
 /* =========== grid container MAIN items =========== */
@@ -139,17 +138,18 @@ body {
 }
 /* ====================== misc ======================= */
 a {
-  color: white;
+  color: #e6e0dc;
+;
   text-decoration: none;
 }
 h1 {
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
-h2, h3 {
+/* h2, h3 { */
   /* text-decoration: underline; */
-}
+/* } */
 
 ul {
   list-style-type: none;
