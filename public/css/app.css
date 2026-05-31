@@ -1,7 +1,3 @@
-/* * { */
-  /* border: 1.5px solid black; */
-/* } */
-
 body {
   height: 100%;
   width: 100%;
@@ -70,6 +66,7 @@ body {
 }
 
 /* =========== grid container NEW page =========== */
+
 .new-container {
   display: grid;
   grid-template-rows: 1fr 1fr 400px 1fr;
@@ -102,21 +99,81 @@ body {
 
 /* =========== grid container MAIN items =========== */
 
+/* 1. Turn the <ul> container into the 3-column Grid */
+.soap-list ul {
+  display: grid;
+  /* Creates 3 equal columns that adjust smoothly */
+  grid-template-columns: repeat(3, 1fr); 
+  /* Spacing between your soap cards */
+  gap: 20px; 
+  /* Strips out the default bullet point styling */
+  list-style-type: none; 
+  padding: 0;
+  margin: 0;
+  /* FORCE ALL ITEMS IN A ROW TO STRETCH TO THE SAME HEIGHT */
+  align-items: stretch;
+}
+
+/* 2. The <li> wrappers */
+.soap-list li {
+  display: flex;
+}
+
+/* 3. The <form> wrappers */
+.soap-list form {
+  display: flex;
+  width: 100%; /* Force the form to take up full grid cell width */
+}
+
+/* 4. Style the individual Soap Card items */
+.soap-card-container {
+  border: 5px solid #b03a9a;
+  padding: 15px;
+  border-radius: 8px;
+  
+  /* Flexbox makes the contents stack vertically inside the card */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the text and buttons */
+  text-align: center;
+  gap: 10px; /* Space between text, buttons, and image */
+
+  /* FORCE THE CARD TO FILL THE ENTIRE HEIGHT OF THE CELL */
+  width: 100%;
+  height: 100%;
+}
+
+/* 5. Make sure the image behaves nicely inside the grid cell */
+.soap-card-container img {
+  width: 100%;       /* Takes up the width of the card */
+  max-width: 250px;  /* Stops it from getting awkwardly huge */
+  height: 250px;        /* same height for all images */
+  object-fit: cover;    /* crop to fill without stretching */
+  display: block;
+
+  /* PUSHES THE IMAGE TO THE VERY BOTTOM OF THE UNIFORM CARD */
+  margin-top: auto;  
+}
+
 .nav {
   grid-area: nav;
-  background-color: #ccc49b;
+  background-color: #e4ddb9;
 }
 
 .header {
   grid-area: header;
-  background-color: #bf9975;
+  background-color: #e4ddb9;
   color: white;
   text-align: center;
+  display: flex;
+  justify-content: space-between; /* left item on left, right item on right */
+  align-items: center;            /* vertically center */
+  padding: 0 20px;                /* optional spacing from edges */
 }
 
 .footer {
   grid-area: footer;
-  background-color: #ccc49b;
+  background-color: #dbc660;
   display: flex;
   flex: space-evenly;
   flex-direction: row;
@@ -125,7 +182,7 @@ body {
 
 .side-bar {
   grid-area: side-bar;
-  background-color: #69967e;
+  background-color: #6da4db;
   text-align: center;
 }
 
@@ -137,14 +194,19 @@ body {
   align-items: center;
 }
 /* ====================== misc ======================= */
-a {
-  color: #e6e0dc;
-;
-  text-decoration: none;
-}
+/* a { */
+  /* color: #e6e0dc; */
+  /* text-decoration: none; */
+/* } */
+
 h1 {
   color: rgb(255, 255, 255);
   text-align: center;
+}
+
+.danger {
+  color: red;
+  font-size: 18px;
 }
 
 /* h2, h3 { */
@@ -155,17 +217,15 @@ ul {
   list-style-type: none;
 }
 
-/* w3schools */
 table, th, td {
   border: 1px solid black;
 }
 /* ==================== buttons ====================== */
 
 .button {
-  /* w3schools */
-  background-color: #dea97e;
+  transition-duration: 0.4s;
   border: none;
-  color: white;
+  background-color: transparent;
   padding: 4px 8px;
   text-align: center;
   text-decoration: none;
@@ -173,6 +233,11 @@ table, th, td {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.button:hover {
+  background-color: #afc438; /* Green */
+  /* color: white; */
 }
 
 .inputSm {

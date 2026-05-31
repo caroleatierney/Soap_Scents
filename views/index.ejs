@@ -8,36 +8,54 @@
     <div class="grid-container">
 
       <div class="nav">
-        <button type="button" name="button" class="button"><a href="/soap/new" style="text-decoration: none">ENTER A NEW SOAP</a></button>
-        <h1>Welcome to Soap Scents</h1>
+          <h1>Welcome to Soap Scents</h1>
+          <h1 class="danger">5/28/2026 - This website is currently being redesigned from boot camp</h1>
       </div>
+
       <div class="header">
-        <h2>Your Soaps!!!</h2>
+        <div>
+          <h2>These are the Soap Recipes you have made:</h2>
+        </div>
+        <div>
+          <button type="button" name="button" class="button">
+            <a href="/soap/new" style="text-decoration: none">Enter a new soap</a>
+          </button>
+        </div>
       </div>
+
+
 
       <div class="side-bar">
+        <p>This is a side bar.</p>
+        <p>Put about stuff here</p>
       </div>
 
-          <div class="soap-list">
-
-              <ul>
-                <% for (let i = 0; i < soap.length; i++) { %>
-                  <li>
-                    <form action="/soap/<%= soap[i].id %>?_method=DELETE" method="POST">
-                      <img src="<%= soap[i].image %>.jpg" alt="Soap Image" width="30%" height="30%">
-                      <a href="/soap/<%= soap[i].id %>" style="text-decoration: none;"><%= soap[i].name %></a>
-                      <input type="submit" value="DELETE" class="button" />
-                      <a href="/soap/<%= soap[i].id %>/edit" class="button">EDIT</a>
-                    </form>
-                  </li>
-
-                <% } %>           
-              </ul>
-
-            </div>
+      <div class="soap-list">
+        <ul>
+          <% for (let i = 0; i < soap.length; i++) { %>
+          <li>
+            <form action="/soap/<%= soap[i].id %>?_method=DELETE" method="POST">
+                
+              <div class="soap-card-container">
+                  
+                <a href="/soap/<%= soap[i].id %>" style="text-decoration: none;"><%= soap[i].name %></a>
+                
+                <div class="flex-row">
+                  <input type="submit" value="Delete" class="button" />
+                  <a href="/soap/<%= soap[i].id %>/edit" class="button">Edit</a>
+                </div>
+                <img src="<%= soap[i].image %>.jpg" alt="Soap Image">
+                  
+              </div>
+                
+              </form>
+            </li>
+          <% } %>           
+        </ul>
+</div>
 
         <!-- footer -->
-        <!-- <%- include('./partials/footer.ejs') %> -->
+        <%- include('./partials/footer.ejs') %>
 
       </div>
     </body>
