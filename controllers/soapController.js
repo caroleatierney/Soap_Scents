@@ -214,14 +214,17 @@ let newSoap = {
 // ****************************************
 // ***********  DELETE ROUTE  *************
 // ****************************************
-router.delete('/soap/:id', (req, res)=>{
+router.delete("/soap/:id", async (req, res) => {
 // console.log("in log/delete");
 // res.send('deleting...');
-  Soap.findByIdAndRemove(
-    req.params.id,
-    (err, data) => {
-    res.redirect('/soap');  //redirect to soap index page
-    });
+
+  try {
+    await Soap.findByIdAndDelete(req.params.id);
+    res.redirect("/soap"); //redirect to soap index page
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting soap");
+  }
 });
 
 module.exports = router;
