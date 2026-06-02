@@ -9,25 +9,35 @@
 
       <div class="nav">
           <h1>Welcome to Soap Scents</h1>
-          <h1 class="danger">5/28/2026 - This website is currently being redesigned from boot camp</h1>
+          <h2>5/28/2026 - This website is currently being redesigned from boot camp to have better asthetics</h2>
       </div>
 
       <div class="header">
         <div>
-          <h2>These are the Soap Recipes you have made:</h2>
+          <h2>These are the Soap Recipes you have made so far:</h2>
         </div>
         <div>
           <button type="button" name="button" class="button">
-            <a href="/soap/new" style="text-decoration: none">Enter a new soap</a>
+            <a href="/soap/new" class="button" style="text-decoration: none">Enter a new soap</a>
+                <div class="icons">
+       <a href="https://www.facebook.com/carole.brnotierney/" style="left: 1120px; top: 1000%"><i class="fab fa-facebook-square fa-2x fa-fw"></i></a>
+
+       <a href="mailto:caroleatierney@gmail.com" target="_top" style="left: 1140px; top: 1000%"><i class="fas fa-envelope fa-2x fa-fw" target="_blank"></i></a>
+
+       <a href="https://www.instagram.com/caroleatierney" style="left: 1160px; top: 1000%" target="_blank"><i class="fab fa-instagram-square fa-2x fa-fw"></i></a>
+
+       <a href="www.linkedin.com/in/caroleatierney" style="left: 1160px; top: 1000%" target="_blank"><i class="fab fa-linkedin fa-2x fa-fw"></i> </a>
+    </div>
           </button>
         </div>
       </div>
 
-
-
       <div class="side-bar">
-        <p>This is a side bar.</p>
-        <p>Put about stuff here</p>
+        <h2>About</h2>
+        <p>Add my Dumb Portfolio Photo</p>
+        <p>In a perfect world, I would be able to make amazing soaps and sell them on this website!</p>
+        <p>Unfortunately, I am currently furloughed and we have 4 wonderful kids whom's college loan we are helping pay off.</p>
+        <p>And, with 3 bootcamps in my pocket, it is impossible to get an entry level website developer gig!</p>
       </div>
 
       <div class="soap-list">
@@ -38,11 +48,12 @@
                 
               <div class="soap-card-container">
                   
-                <a href="/soap/<%= soap[i].id %>" style="text-decoration: none;"><%= soap[i].name %></a>
+                <a class="style="text-decoration: none;"><%= soap[i].name %></a>
                 
                 <div class="flex-row">
+                  <a href="/soap/<%= soap[i].id %>/view" class="button"  style="text-decoration: none;">View</a>
+                  <a href="/soap/<%= soap[i].id %>/edit" class="button"  style="text-decoration: none;">Edit</a>
                   <input type="submit" value="Delete" class="button" />
-                  <a href="/soap/<%= soap[i].id %>/edit" class="button">Edit</a>
                 </div>
                 <img src="<%= soap[i].image %>.jpg" alt="Soap Image">
                   

@@ -2,7 +2,8 @@ body {
   height: 100%;
   width: 100%;
   font-size: 25px;
-  color: black;
+  color: #F2E9E4;
+  background-color: #9A8C98;
   /* fun font */
   font-family: 'Architects Daughter', cursive;
 }
@@ -23,14 +24,12 @@ body {
 
 .soap-cost {
   grid-area: soap-cost;
-  /* background-color:  #69967e; */
   text-align: center;
   font-size: 18px;
 }
 
 .soap-ingredients {
   grid-area: soap-ingredients;
-  /* background-color:  #69967e; */
   text-align: center;
   font-size: 18px;
 }
@@ -56,7 +55,6 @@ body {
   grid-template-columns: repeat(4, 1fr);
   flex-wrap: wrap;
   flex-grow: 1;
-  background-color:  #69967e;
 
   grid-template-areas:
   "nav nav nav nav"
@@ -75,7 +73,7 @@ body {
 
   flex-wrap: wrap;
   flex-grow: 1;
-  background-color:  #69967e;
+  background-color:blanchedalmond;
 
   grid-template-areas:
   "nav nav nav nav"
@@ -99,8 +97,11 @@ body {
 
 /* =========== grid container MAIN items =========== */
 
-/* 1. Turn the <ul> container into the 3-column Grid */
 .soap-list ul {
+  /* margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px; */
   display: grid;
   /* Creates 3 equal columns that adjust smoothly */
   grid-template-columns: repeat(3, 1fr); 
@@ -109,7 +110,8 @@ body {
   /* Strips out the default bullet point styling */
   list-style-type: none; 
   padding: 0;
-  margin: 0;
+  background-color: #f2e9e4;
+  color: #4a4e69;
   /* FORCE ALL ITEMS IN A ROW TO STRETCH TO THE SAME HEIGHT */
   align-items: stretch;
 }
@@ -127,10 +129,12 @@ body {
 
 /* 4. Style the individual Soap Card items */
 .soap-card-container {
-  border: 5px solid #b03a9a;
+  /* margin: 5px; */
+  border:2px solid #e6e0dc;
   padding: 15px;
   border-radius: 8px;
-  
+  box-sizing: border-box;
+
   /* Flexbox makes the contents stack vertically inside the card */
   display: flex;
   flex-direction: column;
@@ -157,13 +161,10 @@ body {
 
 .nav {
   grid-area: nav;
-  background-color: #e4ddb9;
 }
 
 .header {
   grid-area: header;
-  background-color: #e4ddb9;
-  color: white;
   text-align: center;
   display: flex;
   justify-content: space-between; /* left item on left, right item on right */
@@ -173,16 +174,17 @@ body {
 
 .footer {
   grid-area: footer;
-  background-color: #dbc660;
   display: flex;
   flex: space-evenly;
   flex-direction: row;
   font-size: 20px;
+  text: center;
 }
 
 .side-bar {
   grid-area: side-bar;
-  background-color: #6da4db;
+  background-color: #C9ADA7;
+  color: #f2e9e4;;
   text-align: center;
 }
 
@@ -190,17 +192,14 @@ body {
   display: flex;
   flex-direction: column;
   grid-area: soap-list;
-  background-color: #69967e;
   align-items: center;
 }
 /* ====================== misc ======================= */
-/* a { */
-  /* color: #e6e0dc; */
-  /* text-decoration: none; */
-/* } */
+a { 
+   color: #4a4e69; 
+}
 
-h1 {
-  color: rgb(255, 255, 255);
+h1, h2 {
   text-align: center;
 }
 
@@ -208,10 +207,6 @@ h1 {
   color: red;
   font-size: 18px;
 }
-
-/* h2, h3 { */
-  /* text-decoration: underline; */
-/* } */
 
 ul {
   list-style-type: none;
@@ -226,17 +221,20 @@ table, th, td {
   transition-duration: 0.4s;
   border: none;
   background-color: transparent;
+  font-family: 'Architects Daughter', cursive !important;
+  color: #f2e9e4;
+  background-color: #c9ada7;
   padding: 4px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 20px;
+  margin: 4px;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: #afc438; /* Green */
+  background-color: #eae3c7; /* Green */
   /* color: white; */
 }
 

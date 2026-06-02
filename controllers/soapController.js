@@ -95,61 +95,59 @@ router.get("/soap/:id", async (req, res) => {
 // ************** PUT ROUTE ***************
 // ****************************************
 // posts the change from edit
-router.put('/soap/:id', (req, res)=>{
-    // res.send(req.params.id);
-    // res.send(req.body)
-
+router.put('/soap/:id', async (req, res)=>{
       // create a soap object to match the data structure
       // of the model.  The data needs to be re-shaped from
       // the req.body form
 
-      let editSoap = {
-          name: req.body.name,
-          image: req.body.image,
-          percentSuperFat: req.body.percentSuperFat,
-          ingredients:
-          {
-            ingredient1: req.body.ingredient1,
-            amount1: req.body.amount1,
-            ingredient2: req.body.ingredient2,
-            amount2: req.body.amount2,
-            ingredient3: req.body.ingredient3,
-            amount3: req.body.amount3,
-            ingredient4: req.body.ingredient4,
-            amount4: req.body.amount4,
-            ingredient5: req.body.ingredient5,
-            amount5: req.body.amount5,
-            ingredient6: req.body.ingredient6,
-            amount6: req.body.amount6,
-            ingredient7: req.body.ingredient7,
-            amount7: req.body.amount7,
-            ingredient8: req.body.ingredient8,
-            amount8: req.body.amount8
-          },
-          costPerBar: req.body.costPerBar,
-          costPerPound: req.body.costPerPound,
-          addCostToGiftWrapPerBar: req.body.addCostToGiftWrapPerBar,
-          lyeCalculation:
-          {
-            minimumWaterNeeded: req.body.minimumWaterNeeded,
-            sodiumHydroxide: req.body.sodiumHydroxide,
-          },
-          totalOilsWeight: req.body.totalOilsWeight,
-          totalRecipeWeight: req.body.totalRecipeWeight,
-          totalBarsAvail: req.body.totalBarsAvail,
-          exfoliating: req.body.exfoliating,
-          notes: req.body.notes
-        }
+try {
+    let editSoap = {
+      name: req.body.name,
+      image: req.body.image,
+      percentSuperFat: req.body.percentSuperFat,
+      ingredients: {
+        ingredient1: req.body.ingredient1,
+        amount1: req.body.amount1,
+        ingredient2: req.body.ingredient2,
+        amount2: req.body.amount2,
+        ingredient3: req.body.ingredient3,
+        amount3: req.body.amount3,
+        ingredient4: req.body.ingredient4,
+        amount4: req.body.amount4,
+        ingredient5: req.body.ingredient5,
+        amount5: req.body.amount5,
+        ingredient6: req.body.ingredient6,
+        amount6: req.body.amount6,
+        ingredient7: req.body.ingredient7,
+        amount7: req.body.amount7,
+        ingredient8: req.body.ingredient8,
+        amount8: req.body.amount8
+      },
+      costPerBar: req.body.costPerBar,
+      costPerPound: req.body.costPerPound,
+      addCostToGiftWrapPerBar: req.body.addCostToGiftWrapPerBar,
+      lyeCalculation: {
+        minimumWaterNeeded: req.body.minimumWaterNeeded,
+        sodiumHydroxide: req.body.sodiumHydroxide,
+      },
+      totalOilsWeight: req.body.totalOilsWeight,
+      totalRecipeWeight: req.body.totalRecipeWeight,
+      totalBarsAvail: req.body.totalBarsAvail,
+      exfoliating: req.body.exfoliating,
+      notes: req.body.notes
+    };
 
-        console.log(editSoap)
-        Soap.findByIdAndUpdate(
-          req.params.id,
-          editSoap,
-          {new:true},
-          (err, updatedSoap) => {
-            // res.send(updatedSoap);
-         res.redirect('/soap');  //redirect to index page
-        });
+    await Soap.findByIdAndUpdate(
+      req.params.id,
+      editSoap,
+      { new: true }
+    );
+
+    res.redirect('/soap');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error updating soap');
+  }
 });
 
 // ****************************************
