@@ -6,29 +6,26 @@
 
   <body>
 
-    <div class="new-container">
+    <div class="nav">
+      <button type="button" name="button" class="button"><a href="/soap" style="text-decoration: none">Back to Soap Index</a></button>
+    </div>
 
-        <div class="nav">
-            <button type="button" name="button" class="button"><a href="/soap" style="text-decoration: none">BACK TO SOAP INDEX</a></button>
-            <h1>Soap Scents</h1>
-        </div>
+    <div>
+      <h1>Soap Scents</h1>
+      <h2>Enter a New Soap</h2>
+    </div>
 
-        <div class="header">
-          <h2>Enter a New Soap</h2>
-        </div>
+    <div>
 
         <form action="/soap/" class="form" method="POST">
 
-            <div class="name-image">
-              <h3> Soap Name and Image </h3>
-                  <label for="name">Soap Name:</label>
-                  <input class ="inputLg" type="text" name="name" required /><br>
+        <div class="new-soap-div">
+          <div class="soap-ingredients">
+            <label for="name">Soap Name:</label>
+              <input class ="inputLg" type="text" name="name" placeholder="Soap Name" /><br>
 
-                  <label for="image">Soap Image:</label>
-                  <input class ="inputLg" type="text" name="image" required /><br>
-            </div>
-
-            <div class="soap-ingredients">
+              <label for="image">Soap Image:</label>
+              <input class ="inputLg" type="url" name="image" required placeholder="Soap Image url"/><br>
 
               <table id="Ingredients">
                   <tr>
@@ -37,7 +34,7 @@
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient1" required /></td>
-                    <td><input class ="inputSm" type="number" name="amount1" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="amount1" required /></td>
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient2" required /></td>
@@ -45,27 +42,27 @@
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient3" required /></td>
-                    <td><input class ="inputSm" type="number" name="amount3" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="amount3" required /></td>
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient4" required /></td>
-                    <td><input class ="inputSm" type="number" name="amount4" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="amount4" required /></td>
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient5" required /></td>
-                    <td><input class ="inputSm" type="number" name="amount5" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="amount5" required /></td>
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient6" required /></td>
-                    <td><input class ="inputSm" type="number" name="amount6" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="amount6" required /></td>
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient7" required /></td>
-                    <td><input class ="inputSm" type="number" name="amount7" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01"name="amount7" required /></td>
                   </tr>
                   <tr>
                     <td><input class ="inputMed" type="text" name="ingredient8" required /></td>
-                    <td><input class ="inputSm" type="number" name="amount8" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="amount8" required /></td>
                   </tr>
 
               </table>
@@ -73,41 +70,99 @@
             </div>
 
             <div class="soap-cost">
-                <h3>Purchase Information</h3>
-                    <label for="costPerBar">Cost Per Bar</label>
-                    <input class ="inputSm" type="number" name="costPerBar" /><br>
-                    <label for="costPerPound">Cost Per Pound</label>
-                    <input class ="inputSm" type="number" name="costPerPound" /><br>
-                    <label for="addCostToGiftWrapPerBar">Cost to Gift Wrap Per Bar</label>
-                    <input class ="inputSm" type="number" name="addCostToGiftWrapPerBar" /><br>
-                    <label for="totalBarsAvail">Bars Available</label>
-                    <input class ="inputSm" type="number" name="totalBarsAvail" /><br>
 
-                <h3>Additional Information</h3>
-                    <label for="percentSuperFat"> Super Fat</label>
-                    <input class ="inputSm" type="number" name="percentSuperFat"><br>
-                    <label for="exfoliating">Exfoliating</label>
-                    <input class ="inputMed" type="boolean" name="exfoliating" required/><br>
-                    <label for="notes">Notes</label>
-                    <input class ="inputNotes" type="text" name="notes" /><br>
+                <table id="Ingredients">
+                  <tr>
+                    <th>Purchase Information</th>
+                    <th> Cost</th>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Cost Per Bar" placeholder="Cost Per Bar" required/></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="costPerBar" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Cost Per Pound" placeholder="Cost Per Pound" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="costPerPound" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Cost to Gift Wrap Per Bar" placeholder="Cost to Gift Wrap Per Bar" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" name="addCostToGiftWrapPerBar" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Bars Available" placeholder="Bars Available" required/></td>
+                    <td><input class ="inputSm" type="number" name="totalBarsAvail" required /></td>
+                  </tr>
+              </table>
+
+              <table id="Ingredients">
+                  <tr>
+                    <th>Additional Information</th>
+                    <th> Cost</th>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Percent Super Fat" placeholder="Percent Superfat" required /></td>
+                    <td><input 
+                      class ="inputSm"
+                      type="number"
+                      min="0"
+                      max="100"
+                      step="any"
+                      inputmode="decimal"
+                      name="percentSuperFat"
+                      placeholder="%"
+                      required />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Exfoliating?" placeholder="Exfoliating?" required /></td>
+                    <td><input class ="inputSm" type="number" name="exfoliating" required /></td>
+                  </tr>
+              </table>
+
+              <label for="notes">Notes</label>
+              <textarea
+                class ="inputNotes"
+                name="notes"
+                rows="1" 
+                placeholder="Enter recipe notes here..."
+                oninput="autoExpand(this)"
+                ></textarea>
+              <br>
             </div>
+            <div class="soap-lye-weight"> 
+              <table id="Ingredients">
+                  <tr>
+                    <th>Lye Calculation</th>
+                    <th> Amount</th>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Minimum Water Needed" placeholder="Minimum Water Needed" required /></td>
+                    <td><input class ="inputSm" type="number" name="minimumWaterNeeded" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Sodium Hydroxide" placeholder="Sodium Hydroxide" required /></td>
+                    <td><input class ="inputSm" type="number" name="sodiumHydroxide" required /></td>
+                  </tr>
+              </table>
+            
+              <table id="Ingredients">
+                  <tr>
+                    <th>Weights</th>
+                    <th> Amount</th>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Total Oils Weight" placeholder="Total Oils Weight" required/></td>
+                    <td><input class ="inputSm" type="number" name="totalOilsWeight" required /></td>
+                  </tr>
+                  <tr>
+                    <td><input class ="inputMed" type="text" name="Total Recipe Weight" placeholder="Total Recipe Weight" required /></td>
+                    <td><input class ="inputSm" type="number" name="totalRecipeWeight" required /></td>
+                  </tr>
+              </table>
 
-            <div class="soap-lye-weight">
-                <h3> Lye Calculation </h3>
-                    <label for="minimumWaterNeeded">Minimum Water Needed</label>
-                    <input class ="inputSm" type="number" name="minimumWaterNeeded" /><br>
-                    <label for="sodiumHydroxide">Sodium Hydroxide</label>
-                    <input class ="inputSm" type="number" name="sodiumHydroxide" /><br>
-
-                <h3> Weights </h3>
-                    <label for="totalOilsWeight">Total Oils Weight</label>
-                    <input class ="inputSm" type="number" name="totalOilsWeight" /><br>
-                    <label for="totalRecipeWeight">Total Recipe Weight</label>
-                    <input class ="inputSm" type="number" name="totalRecipeWeight" /><br>
-
-                    <input class="button" type="submit" value="SUBMIT NEW SOAP"/><br>
-
+              <input class="button" type="submit" value="Submit New Soap"/><br>
             </div>
+        </div>
       </form>
 
     </div>

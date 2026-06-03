@@ -37,20 +37,16 @@ body {
 .soap-ingredients,
 .soap-cost,
 .soap-lye-weight {
+  color:#4a4e69;
   display: flex;
   flex-direction: column;
   align-items: center;  /* vertically center contents */
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
   font-size: 18px;
-  background-color: #C9ADA7;
-}
-
-.name-image {
-  grid-area: name-image;
-  /* background-color:  #69967e; */
-  text-align: center;
-  font-size: 18px;
+  background-color: #f2e9e4;
+  width: 33%;
+  padding: 10px;
 }
 
 /* =========== grid container SHOW & EDIT page =========== */
@@ -70,20 +66,12 @@ body {
 
 /* =========== grid container NEW page =========== */
 
-.new-container {
-  display: grid;
-  grid-template-rows: 1fr 1fr 400px 1fr;
-  grid-template-columns: repeat(4, 1fr);
-  /* grid-template-rows: 1fr 1fr 1fr 1fr; */
-
-  flex-wrap: wrap;
-  flex-grow: 1;
-
-  grid-template-areas:
-  "nav nav nav nav"
-  "header header header header"
-  "name-image soap-ingredients soap-lye-weight soap-cost"
-  "footer footer footer footer";
+.new-soap-div {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
 }
 
 /* =========== grid container index page =========== */
@@ -247,6 +235,7 @@ ul {
 
 table, th, td {
   border: 1px solid black;
+  width: 75%;
 }
 /* ==================== buttons ====================== */
 
@@ -271,6 +260,8 @@ table, th, td {
   /* color: white; */
 }
 
+/* ==================== new soap ====================== */
+
 .inputSm {
   background-color: #e6e0dc;
   height: 18px;
@@ -279,35 +270,38 @@ table, th, td {
   color: black;
   margin: 3px 1px;
   text-align: right;
+  font-family: 'Architects Daughter', cursive;
 }
 
 .inputMed {
   background-color: #e6e0dc;
   height: 18px;
-  width: 150px;
+  width: 95%;
   border: none;
   color: black;
   margin: 3px 1px;
+  font-family: 'Architects Daughter', cursive;
 }
 
 .inputNotes {
   background-color: #e6e0dc;
-  width: 50%;
-  border-radius: 10px 10px 10px 10px;
+  width: 75%;
+  border-radius: 10px;
   padding: 15px;
   box-sizing: border-box;
-  overflow: auto;
   color: black;
   margin: 3px 1px;
+  font-family: 'Architects Daughter', cursive;
 }
 
 .inputLg {
   background-color: #e6e0dc;
   height: 18px;
-  width: 150px;
+  width: 75%;
   border: none;
   color: black;
   margin: 3px 1px;
+  font-family: 'Architects Daughter', cursive;
 }
 
 .form-button {
