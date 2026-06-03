@@ -34,6 +34,21 @@ body {
   grid-area: soap-lye-weight;
 }
 
+.new-soap-ingredients, 
+.new-soap-cost,
+.new-soap-lye-weight {
+  color:#4a4e69;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* vertically center contents */
+  justify-content: space-evenly;
+  text-align: center;
+  font-size: 18px;
+  background-color: #f2e9e4;
+  width: 33%;
+  padding: 10px;
+ }
+
 .soap-ingredients,
 .soap-cost,
 .soap-lye-weight {
@@ -45,7 +60,7 @@ body {
   text-align: center;
   font-size: 18px;
   background-color: #f2e9e4;
-  width: 33%;
+  width: 90%;
   padding: 10px;
 }
 
@@ -217,6 +232,12 @@ h1, h2 {
 .dirPhone, a {
   color: #f2e9e4;
   /* text-decoration: none; */
+}
+
+.soap-name {
+  color: #4a4e69;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .headShot {
