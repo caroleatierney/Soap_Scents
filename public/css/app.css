@@ -27,21 +27,38 @@ body {
   flex-direction: row;
 }
 
-.new-soap-ingredients, 
-.new-soap-cost,
-.new-soap-lye-weight {
-  color:#4a4e69;
+/* Update this block in your CSS file */
+.soap-column,
+.soap-ingredients,
+.soap-cost,
+.soap-lye-weight {
+  color: #4a4e69;
   display: flex;
   flex-direction: column;
-  align-items: center;  /* vertically center contents */
-  justify-content: space-evenly;
+  align-items: center;    /* Center contents vertically */
+  justify-content: start; /* Keep inputs tight to the top */
   text-align: center;
   font-size: 18px;
   background-color: #f2e9e4;
-  width: 33%;
   padding: 10px;
- }
+  box-sizing: border-box; /* Ensures padding doesn't distort the width math */
+  
+  /* ⚡️ Balanced widths to fit all 4 columns side-by-side perfectly */
+  width: 26%; 
+}
 
+/* Give the sidebar slightly less room since it's just an image */
+.edit-side-bar {
+  padding: 15px;
+  background-color: #C9ADA7;
+  color: #f2e9e4;
+  text-align: center;
+  box-sizing: border-box;
+  
+  width: 22%; 
+}
+
+.soap-column,
 .soap-ingredients,
 .soap-cost,
 .soap-lye-weight {
@@ -53,7 +70,7 @@ body {
   text-align: center;
   font-size: 18px;
   background-color: #f2e9e4;
-  width: 90%;
+  width: 25%;
   padding: 10px;
 }
 
@@ -77,7 +94,7 @@ body {
 .new-soap-div {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: auto;
   width: 100%;
   justify-content: space-between;
 }
