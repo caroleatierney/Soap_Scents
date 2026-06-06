@@ -22,16 +22,9 @@ body {
   flex-flow: column wrap;
 }
 
-.soap-cost {
-  grid-area: soap-cost;
-}
-
-.soap-ingredients {
-  grid-area: soap-ingredients;
-}
-
-.soap-lye-weight {
-  grid-area: soap-lye-weight;
+.edit-divs {
+  display: flex;
+  flex-direction: row;
 }
 
 .new-soap-ingredients, 
@@ -300,6 +293,7 @@ table, th, td {
   width: 95%;
   border: none;
   color: black;
+  text-align: left;
   margin: 3px 1px;
   font-family: 'Architects Daughter', cursive;
 }
@@ -326,10 +320,37 @@ table, th, td {
 }
 
 .form-button {
-  background-color: #dea97e;
+  background-color: #c9ada7;
   height: 18px;
   width: 150px;
   border: none;
   color: black;
   margin: 3px 1px;
+}
+
+/* Forces table columns containing your labels to align left */
+.new-soap-div table td {
+  text-align: left;
+}
+
+/* Ensures inline labels obey left-alignment behavior */
+label.inputMed {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+/* Centers the text and inputs in the second column of your tables */
+.new-soap-div table td:last-child {
+  text-align: center;
+}
+
+/* Ensures the small numeric input boxes center themselves within that column */
+.new-soap-div table td:last-child input {
+  margin: 3px auto; 
+}
+
+.check {
+ background-color: #e6e0dc;
+ height: 18px;
+ width: 75%;
 }
