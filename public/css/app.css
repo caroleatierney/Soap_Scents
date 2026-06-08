@@ -22,8 +22,12 @@ body {
   flex-flow: column wrap;
 }
 
-/* .soap-cost {
+.soap-cost {
   grid-area: soap-cost;
+}
+
+.soap-container > .form {
+  display: contents;
 }
 
 .soap-ingredients {
@@ -32,53 +36,22 @@ body {
 
 .soap-lye-weight {
   grid-area: soap-lye-weight;
-} */
-
-.soap-container > .form {
-  display: contents;
 }
-.new-soap-ingredients, 
+
+.new-soap-ingredients,
 .new-soap-cost,
 .new-soap-lye-weight {
   color:#4a4e69;
   display: flex;
   flex-direction: column;
-  align-items: center;    /* Center contents vertically */
-  justify-content: start; /* Keep inputs tight to the top */
-  text-align: center;
-  font-size: 18px;
-  background-color: #f2e9e4;
-  padding: 10px;
-  box-sizing: border-box; /* Ensures padding doesn't distort the width math */
-  
-  /* ⚡️ Balanced widths to fit all 4 columns side-by-side perfectly */
-  width: 26%; 
-}
-
-/* Give the sidebar slightly less room since it's just an image */
-.edit-side-bar {
-  padding: 15px;
-  background-color: #C9ADA7;
-  color: #f2e9e4;
-  text-align: center;
-  box-sizing: border-box;
-  
-  width: 22%; 
-}
-
- .soap-column {
-  color:#4a4e69;
-  display: flex;
-  flex-direction: row;
-  align-items: center;  /* vertically center contents */
+  align-items: center; /* vertically center contents */
   justify-content: space-evenly;
   text-align: center;
   font-size: 18px;
   background-color: #f2e9e4;
-  height:auto;
-  width: auto;
+  width: 33%;
   padding: 10px;
- }
+}
 
 .soap-ingredients,
 .soap-cost,
@@ -86,7 +59,7 @@ body {
   color:#4a4e69;
   display: flex;
   flex-direction: column;
-  align-items: center;  /* vertically center contents */
+  align-items: center; /* vertically center contents */
   justify-content: space-evenly;
   text-align: center;
   font-size: 18px;
@@ -96,27 +69,34 @@ body {
   padding: 10px;
 }
 
-/* =========== grid container SHOW & EDIT page =========== */
+/* =========== SHOW & EDIT page =========== */
+
 .soap-container {
   display: grid;
   grid-template-rows: 1fr 1fr 400px 1fr;
   grid-template-columns: repeat(4, 1fr);
   flex-wrap: wrap;
   flex-grow: 1;
-
   grid-template-areas:
   "nav nav nav nav"
   "header header header header"
-  "side-bar soap-ingredients soap-lye-weight soap-cost"
+  "side-bar soap-ingredients soap-cost soap-lye-weight"
   "footer footer footer footer";
 }
 
-/* =========== grid container NEW page =========== */
+.notes {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;  
+}
+
+/* =========== NEW page =========== */
 
 .new-soap-div {
   display: flex;
   flex-direction: row;
-  height: auto;
+  height: 100%;
   width: 100%;
   justify-content: space-between;
 }
@@ -128,10 +108,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto auto auto auto;
   grid-template-areas:
-    "nav nav nav nav"
-    "header header header header"
-    "side-bar soap-list soap-list soap-list"
-    "footer footer footer footer";
+  "nav nav nav nav"
+  "header header header header"
+  "side-bar soap-list soap-list soap-list"
+  "footer footer footer footer";
 }
 
 /* =========== grid container MAIN items =========== */
@@ -139,11 +119,11 @@ body {
 .soap-list ul {
   display: grid;
   /* Creates 3 equal columns that adjust smoothly */
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   /* Spacing between your soap cards */
-  gap: 30px; 
+  gap: 30px;
   /* Strips out the default bullet point styling */
-  list-style-type: none; 
+  list-style-type: none;
   padding: 0;
   margin: 0;
   background-color: #f2e9e4;
@@ -161,24 +141,21 @@ body {
 
 /* 3. The <form> wrappers */
 .soap-list form {
-  /* margin: 0px; */
   display: flex;
   width: 100%; /* Force the form to take up full grid cell width */
 }
 
 /* 4. Style the individual Soap Card items */
 .soap-card-container {
-  /* margin: 5px; */
   border: 5px solid #e6e0dc;
   border-radius: 8px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center; /* Centers the text and buttons */
-  justify-content: center;  /* vertically center all children */
+  justify-content: center; /* vertically center all children */
   text-align: center;
   gap: 10px; /* Space between text, buttons, and image */
-
   /* FORCE THE CARD TO FILL THE ENTIRE HEIGHT OF THE CELL */
   width: 100%;
   height: 100%;
@@ -186,14 +163,13 @@ body {
 
 /* 5. Make sure the image behaves nicely inside the grid cell */
 .soap-card-container img {
-  width: 100%;       /* Takes up the width of the card */
-  max-width: 250px;  /* Stops it from getting awkwardly huge */
-  height: 250px;        /* same height for all images */
-  object-fit: cover;    /* crop to fill without stretching */
+  width: 100%; /* Takes up the width of the card */
+  max-width: 250px; /* Stops it from getting awkwardly huge */
+  height: 250px; /* same height for all images */
+  object-fit: cover; /* crop to fill without stretching */
   display: block;
-
   /* PUSHES THE IMAGE TO THE VERY BOTTOM OF THE UNIFORM CARD */
-  /* margin-top: auto;   */
+  /* margin-top: auto; */
 }
 
 .nav {
@@ -205,8 +181,8 @@ body {
   text-align: center;
   display: flex;
   justify-content: space-between; /* left item on left, right item on right */
-  align-items: center;            /* vertically center */
-  padding: 0 20px;                /* optional spacing from edges */
+  align-items: center; /* vertically center */
+  padding: 0 20px; /* optional spacing from edges */
 }
 
 .footer {
@@ -233,8 +209,6 @@ body {
 }
 
 .side-bar img {
-  width: 100%;
-  height: 100%;
   object-fit: cover; /* This prevents distortion while filling the 400px height */
 }
 
@@ -244,7 +218,7 @@ body {
   grid-area: soap-list;
 }
 
-  /* ====================== misc ======================= */
+/* ====================== misc ======================= */
 
 h1, h2 {
   text-align: center;
@@ -253,8 +227,8 @@ h1, h2 {
 }
 
 .hours {
- margin: 0;
- padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .icons {
@@ -296,6 +270,7 @@ table, th, td {
   border: 1px solid black;
   width: 75%;
 }
+
 /* ==================== buttons ====================== */
 
 .button {
@@ -328,7 +303,7 @@ table, th, td {
   border: none;
   color: black;
   margin: 3px 1px;
-  text-align: right;
+  text-align: center;
   font-family: 'Architects Daughter', cursive;
 }
 
@@ -338,19 +313,19 @@ table, th, td {
   width: 95%;
   border: none;
   color: black;
-  text-align: left;
   margin: 3px 1px;
   font-family: 'Architects Daughter', cursive;
 }
 
 .inputNotes {
   background-color: #e6e0dc;
-  width: 75%;
+  width: 100%;
   border-radius: 10px;
   padding: 15px;
   box-sizing: border-box;
   color: black;
   margin: 3px 1px;
+  text-align: center;
   font-family: 'Architects Daughter', cursive;
 }
 
@@ -361,41 +336,6 @@ table, th, td {
   border: none;
   color: black;
   margin: 3px 1px;
-  font-family: 'Architects Daughter', cursive;
-}
-
-.form-button {
-  background-color: #C9ADA7;
-  height: 18px;
-  width: 150px;
-  border: none;
-  color: black;
-  margin: 3px 1px;
-}
-
-/* Forces table columns containing your labels to align left */
-.new-soap-div table td {
-  text-align: left;
-}
-
-/* Ensures inline labels obey left-alignment behavior */
-label.inputMed {
-  display: inline-block;
-  text-align: left;
-  width: 100%;
-}
-/* Centers the text and inputs in the second column of your tables */
-.new-soap-div table td:last-child {
   text-align: center;
-}
-
-/* Ensures the small numeric input boxes center themselves within that column */
-.new-soap-div table td:last-child input {
-  margin: 3px auto; 
-}
-
-.check {
- background-color: #e6e0dc;
- height: 18px;
- width: 75%;
+  font-family: 'Architects Daughter', cursive;
 }
