@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
 
 <!-- header -->
@@ -15,7 +14,9 @@
     </div>
 
     <div class="header">
-        <h2>Edit <%=soap.name%></h2>
+        <% if (soap?.name) { %>
+            <h2>Edit <%=soap.name%></h2>
+        <% } %>
     </div>
 
     <form action="/soap/<%=soap.id%>?_method=PUT" class="form" method="POST">
@@ -32,7 +33,7 @@
             <table id="Ingredients">
                 <tr>
                     <th>Ingredient</th>
-                    <th> Amount in ounces</th>
+                    <th>Ounces</th>
                 </tr>
                 <tr>
                     <%if (soap.ingredients.amount1 > 0) { %>
@@ -78,7 +79,7 @@
                 </tr>
                 <tr>
                     <%if (soap.ingredients.amount8 > 0) { %>
-                        <td><input class ="inputMed" type="text" name="ingredient8" value="<%=soap.ingredients.     ingredient8%>"</td>
+                        <td><input class ="inputMed" type="text" name="ingredient8" value="<%=soap.ingredients.ingredient8%>"</td>
                         <td><input class ="inputSm" type="number" name="amount8" value="<%=soap.ingredients.amount8%>"</td>
                     <%}%>
                 </tr>
@@ -93,30 +94,56 @@
                 </tr>
                 <tr>
                     <td><label for="costPerBar">Cost Per Bar</label></td>
-                    <td><input class ="inputSm" type="number" step="0.01" value="<%=soap.costPerBar%>" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" value="<%=soap.costPerBar%>" name="costPerBar" required /></td>
                 </tr>
                 <tr>
                     <td><label for="costPerPound">Cost Per Pound</label></td>
-                    <td><input class ="inputSm" type="number" step="0.01" value="<%=soap.costPerPound%>" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" value="<%=soap.costPerPound%>" name="costPerPound" required /></td>
                 </tr>
                 <tr>
                     <td><label for="addCostToGiftWrapPerBar">Cost to Gift Wrap Per Bar</label></td>
-                    <td><input class ="inputSm" type="number" step="0.01" value="<%=soap.addCostToGiftWrapPerBar%>" required /></td>
+                    <td><input class ="inputSm" type="number" step="0.01" value="<%=soap.addCostToGiftWrapPerBar%>" name="addCostToGiftWrapPerBar" required /></td>
                 </tr>
                 <tr>
                     <td><label for="totalBarsAvailable">Bars Available</label></td>
-                    <td><input class ="inputSm" type="number" value="<%=soap.totalBarsAvail%>" required /></td>
+                    <td><input class ="inputSm" type="number" value="<%=soap.totalBarsAvail%>" name="totalBarsAvail" required /></td>
                 </tr>
             </table>
+            <br>
 
+            <table id="Ingredients">
+             <tr>    
+                <th>Additional Information</th>
+                <th> </th>
+            </tr>
+            <tr>
+                <td><label for="percentSuperFat">Percent Superfat</label></td>
+                <td><input
+                    class ="inputSm"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="any"
+                    inputmode="decimal"
+                    name="percentSuperFat"
+                    value="<%=soap.percentSuperFat%>"
+                    required />
+                </td>
+                </tr>
+                <tr>
+                    <td><label for="exfoliating">Exfoliating?</label></td>
+                    <td><input class ="check" type="checkbox" name="exfoliating" value="<%=soap.exfoliating%>"></td>
+                </tr>
+            </table>
+            <br>
             <div class="notes">
                 <label for="notes">Notes</label>
                 <textarea
                     class ="inputNotes"
                     id="soapNotes"
                     name="notes"
-                    rows="1"
-                    value="<%=soap.notes%>">
+                    rows="1">
+                    <%= soap.notes%>
                 </textarea>
                 <br>
             </div>
@@ -129,50 +156,37 @@
                     <th>Amount</th>
                 </tr>
                 <tr>
-                    <td><label for="costPerBar">Cost Per Bar</label></td>
-                    <td><input class ="inputSm" value="<%=soap.costPerBar%>" required /></td>
+                    <td><label for="totalOilsWeight">Total Oils Weight</label></td>
+                    <td><input class ="inputSm" value="<%=soap.totalOilsWeight%>" required /></td>
                 </tr>
                 <tr>
-                    <td><label for="costPerPound">Cost Per Pound</label></td>
-                    <td><input class ="inputSm" value="<%=soap.costPerPound%>" required /></td>
-                </tr>
-                <tr>
-                    <td><label for="addCostToGiftWrapPerBar">Cost to Gift Wrap Per Bar</label></td>
-                    <td><input class ="inputSm" value="<%=soap.addCostToGiftWrapPerBar%>" required /></td>
-                </tr>
-                <tr>
-                    <td><label for="totalBarsAvailable">Bars Available</label></td>
-                    <td><input class ="inputSm" value="<%=soap.totalBarsAvail%>" required /></td>
+                    <td><label for="totalRecipeWeight">Total Recipe Weight</label></td>
+                    <td><input class ="inputSm" value="<%=soap.totalRecipeWeight%>" required /></td>
                 </tr>
             </table>
-                <table id="Ingredients">
-                    <tr>
-                        <th>Additional Information</th>
-                        <th> </th>
-                    </tr>
-                    <tr>
-                        <td><label for="percentSuperFat">Percent Superfat</label></td>
-                        <td><input
-                            class ="inputSm"
-                            type="number"
-                            min="0"
-                            max="100"
-                            step="any"
-                            inputmode="decimal"
-                            name="percentSuperFat"
-                            value="<%=soap.percentSuperFat%>"
-                            required />
-                        </td>
-                        </tr>
-                        <tr>
-                            <td><label for="exfoliating">Exfoliating?</label></td>
-                            <td><input class ="check" type="checkbox" name="exfoliating" value="<%=soap.exfoliating%>"></td>
-                        </tr>
-                    </table>
-                    <input class="button" type="submit" value="Submit Changes"/><br>
-                    </div>
-                </form>
+            <br>
+
+            <table id="Ingredients">
+                <tr>
+                    <th>Lye Calculation</th>
+                    <th> </th>
+                </tr>
+                <tr>
+                    <td><label for="minimumWaterNeeded">Minimum Water Needed</label></td>
+                    <td><input class ="inputSm" value="<%=soap.minimumWaterNeeded%>" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="sodiumHydroxide">Sodium Hydroxide</label></td>
+                    <td><input class ="inputSm" value="<%=soap.sodiumHydroxide%>" required /></td>
+                </tr>
+            </table>
+            <br>
+
+            <input class="button" type="submit" value="Submit Changes"/><br>
             </div>
+        </form>
+    </div>
+
     <!-- footer -->
     <%- include('./partials/footer.ejs') %>
     </body>

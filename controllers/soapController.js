@@ -1,14 +1,14 @@
 // ******************************
 // ******* DEPENDENCIES *********
 // ******************************
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
 // ******************************
 // **********  DATABASE *********
 // ******************************
-const Soap = require('../models/soap.js')
-const soapSeed = require('../models/soapSeed')
+const Soap = require("../models/soap.js");
+const soapSeed = require("../models/soapSeed");
 
 // * * * * * * * * *  * * * * * * * * * * *
 // * * * * * * * GET ROUTES * * * * * * * *
@@ -27,6 +27,24 @@ const soapSeed = require('../models/soapSeed')
 // ** POPULATE WITH SEED DATA ***
 // ******************************
 // ** remove after running once
+
+// ******************************
+// ** POPULATE WITH SEED DATA ***
+// ******************************
+// Temporary: Clear out old data and insert the complete seed array
+// Soap.deleteMany({})
+//   .then(() => {
+//     return Soap.create(soapSeed);
+//   })
+//   .then((data) => {
+//     console.log(
+//       "Database successfully reset and populated with complete seed data!",
+//     );
+//   })
+//   .catch((err) => {
+//     console.log("Seed error:", err.message);
+//   });
+
 // Soap.create(soapSeed)
 //   .then((data) => {
 //     console.log("added provided soap data");
@@ -51,12 +69,10 @@ router.get("/soap", async (req, res) => {
 // ****************************************
 // ************** NEW ROUTE ***************
 // ****************************************
-router.get('/soap/new', (req, res) => {
+router.get("/soap/new", (req, res) => {
   // res.send('new soap route');
-  res.render(
-    'new.ejs'
-  )
-})
+  res.render("new.ejs");
+});
 
 // ****************************************
 // *************  EDIT ROUTE   ************
@@ -90,17 +106,18 @@ router.get("/soap/:id", async (req, res) => {
 // ============= ACTION ROUTES ============
 // ****************************************
 
-
 // ****************************************
 // ************** PUT ROUTE ***************
 // ****************************************
 // posts the change from edit
-router.put('/soap/:id', async (req, res)=>{
-      // create a soap object to match the data structure
-      // of the model.  The data needs to be re-shaped from
-      // the req.body form
+router.put("/soap/:id", async (req, res) => {
+  // create a soap object to match the data structure
+  // of the model.  The data needs to be re-shaped from
+  // the req.body form
 
-try {
+  try {
+    req.body.exfoliating = req.body.exfoliating === "on";
+
     let editSoap = {
       name: req.body.name,
       image: req.body.image,
@@ -121,7 +138,7 @@ try {
         ingredient7: req.body.ingredient7,
         amount7: req.body.amount7,
         ingredient8: req.body.ingredient8,
-        amount8: req.body.amount8
+        amount8: req.body.amount8,
       },
       costPerBar: req.body.costPerBar,
       costPerPound: req.body.costPerPound,
@@ -134,19 +151,15 @@ try {
       totalRecipeWeight: req.body.totalRecipeWeight,
       totalBarsAvail: req.body.totalBarsAvail,
       exfoliating: req.body.exfoliating,
-      notes: req.body.notes
+      notes: req.body.notes,
     };
 
-    await Soap.findByIdAndUpdate(
-      req.params.id,
-      editSoap,
-      { new: true }
-    );
+    await Soap.findByIdAndUpdate(req.params.id, editSoap, { new: true });
 
-    res.redirect('/soap');
+    res.redirect("/soap");
   } catch (err) {
     console.error(err);
-    res.status(500).send('Error updating soap');
+    res.status(500).send("Error updating soap");
   }
 });
 
@@ -155,16 +168,15 @@ try {
 // ****************************************
 // creates a new soap
 //  THE FIX: Use async/await with try/catch
-router.post('/soap', async (req, res) => {
+router.post("/soap", async (req, res) => {
   try {
-
     req.body.exfoliating = req.body.exfoliating === "on";
 
     // Wait for the database to create the new soap document
     const newSoap = await Soap.create(req.body);
-    
+
     // Successfully created! Redirect back to the index page
-    res.redirect('/soap');
+    res.redirect("/soap");
   } catch (err) {
     // If something goes wrong (e.g., validation failure), catch the error here
     console.error("Error creating soap recipe:", err);
@@ -176,8 +188,8 @@ router.post('/soap', async (req, res) => {
 // ***********  DELETE ROUTE  *************
 // ****************************************
 router.delete("/soap/:id", async (req, res) => {
-// console.log("in log/delete");
-// res.send('deleting...');
+  // console.log("in log/delete");
+  // res.send('deleting...');
 
   try {
     await Soap.findByIdAndDelete(req.params.id);

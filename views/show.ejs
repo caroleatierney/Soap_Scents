@@ -8,15 +8,14 @@
 
     <div class="soap-container">
 
-      <div>
-        <button type="button" name="button" class="button">
-          <a href="/soap" class="button" style="text-decoration: none">Back to Soap Index</a>
-        </button>
+      <div class="nav">
+        <button type="button" name="button" class="button"><a href="/soap" style="text-decoration: none">Back to Soap Index</a></button>
+        <h1>Soap Scents</h1>
       </div>
 
       <div class="header">
         <% if (soap.name) { %>
-          <h1 class="soap-name"><%= soap.name %></h1>
+          <h2>View <%= soap.name %></h2>
         <% } %>
       </div>
 
@@ -80,36 +79,91 @@
         </tr> 
     </table>
 
-        </div>
+    </div>
 
-        <div class="soap-cost">
-            <h3>Purchase Information</h3>
-            Cost Per Bar: <%=soap.costPerBar%> <br>
-            Cost Per Pound: <%=soap.costPerPound%> <br>
-            Cost per Bar to gift wrap:  <%=soap.addCostToGiftWrapPerBar%> <br>
-            Bars Available for Purchase:  <%=soap.totalBarsAvail%> <br>
+    <div class="soap-cost">
+      <table id="Ingredients">
+        <tr>
+          <th>Purchase Information</th>
+          <th>Cost</th>
+        </tr>
+        <tr>
+          <td><label for="costPerBar">Cost Per Bar</label></td>
+          <td><%=soap.costPerBar%></td>
+        </tr>
+        <tr>
+          <td><label for="costPerPound">Cost Per Pound</label></td>
+          <td><%=soap.costPerPound%></td>
+        </tr>
+        <tr>
+          <td><label for="addCostToGiftWrapPerBar">Cost to Gift Wrap Per Bar</label></td>
+          <td><%=soap.addCostToGiftWrapPerBar%></td>
+        </tr>
+        <tr>
+          <td><label for="totalBarsAvailable">Bars Available</label></td>
+          <td><%=soap.totalBarsAvail%></td>
+        </tr>
+      </table>
 
-            <h3>Additional Information</h3>
-            % Super Fat:  <%=soap.percentSuperFat%> <br>
-            Exfoliating? <%=soap.exfoliating%> <br>
-            Notes: <%=soap.notes%> <br>
-        </div>
+      <table id="Ingredients">
+        <tr>
+          <th>Additional Information</th>
+          <th> </th>
+        </tr>
+        <tr>
+          <td><label for="percentSuperFat">Percent Superfat</label></td>
+          <td><%=soap.percentSuperFat%></td>
+        </tr>
+        <tr>
+          <td><label for="exfoliating">Exfoliating?</label></td>
+          <td><%=soap.exfoliating%></td>
+        </tr>
+      </table>
+        
+      <div class="notes">
+        <label for="notes">Notes</label>
+          <textarea readonly><%=soap.notes%></textarea>
+        <br>
+      </div>
+    </div>
 
         <div class="soap-lye-weight">
-          <h3> Lye Calculation </h3>
-            <% if (soap.lyeCalculation && soap.lyeCalculation.minimumWaterNeeded > 0) { %>
-              Minimum Water Needed: <%= soap.lyeCalculation.minimumWaterNeeded %><br>
-            <% } %>
+      <table id="Ingredients">
+          <tr>
+              <th>Weights</th>
+              <th>Amount</th>
+          </tr>
+          <tr>
+              <td><label for="totalOilsWeight">Total Oils Weight</label></td>
+              <td><%=soap.totalOilsWeight%></td>
+          </tr>
+          <tr>
+             <td><label for="totalRecipeWeight">Total Recipe Weight</label></td>
+             <td><%=soap.totalRecipeWeight%></td>
+          </tr>
+      </table>
+      <br>
 
-            <% if (soap.lyeCalculation && soap.lyeCalculation.sodiumHydroxide > 0) { %>
-              Sodium Hydroxide: <%= soap.lyeCalculation.sodiumHydroxide %><br>
-            <% } %>
+      <table id="Ingredients">
+        <tr>
+            <th>Lye Calculation</th>
+            <th> </th>
+        </tr>
+        <tr>
+          <td><label for="minimumWaterNeeded">Minimum Water Needed</label></td>
+          <td><%=soap.minimumWaterNeeded%></td>
+        </tr>
+        <tr>
+          <td><label for="sodiumHydroxide">Sodium Hydroxide</label></td>
+          <td><%=soap.sodiumHydroxide%></td>
+        </tr>
+      </table>
+      <br>
 
-          <h3> Weights </h3>
-          Total Oils Weight: <%=soap.totalOilsWeight%><br>
-          Total Recipe Weight: <%=soap.totalRecipeWeight%><br>
-        </div>
-       </div>
+      <input class="button" type="submit" value="Submit Changes"/><br>
+      </div>
+    </div>
+
        <!-- footer -->
        <%- include('./partials/footer.ejs') %>
 

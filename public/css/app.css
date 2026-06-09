@@ -73,7 +73,8 @@ body {
 
 .soap-container {
   display: grid;
-  grid-template-rows: 1fr 1fr 400px 1fr;
+  /* Minimum 400px tall, but expands infinitely if text boxes or tables grow */
+  grid-template-rows: auto auto minmax(400px, auto) auto;
   grid-template-columns: repeat(4, 1fr);
   flex-wrap: wrap;
   flex-grow: 1;
@@ -178,9 +179,8 @@ body {
 
 .header {
   grid-area: header;
-  text-align: center;
   display: flex;
-  justify-content: space-between; /* left item on left, right item on right */
+  justify-content: center;
   align-items: center; /* vertically center */
   padding: 0 20px; /* optional spacing from edges */
 }
@@ -271,6 +271,10 @@ table, th, td {
   width: 75%;
 }
 
+textarea {
+  background-color: #f2e9e4;
+  text-align: center;
+}
 /* ==================== buttons ====================== */
 
 .button {
