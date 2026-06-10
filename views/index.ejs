@@ -11,7 +11,7 @@
           <h1>Welcome to Soap Scents</h1>
        </div>
 
-      <div class="header">
+      <div class="headerWelcome">
         <div>
           <h2>These are the Soap Recipes you have made so far:</h2>
         </div>
@@ -34,23 +34,28 @@
         <ul>
           <% for (let i = 0; i < soap.length; i++) { %>
           <li>
-            <form action="/soap/<%= soap[i].id %>?_method=DELETE" method="POST">
+            <!-- We pass 'this' into the function so JavaScript knows EXACTLY which form is submitting -->
+            <form action="/soap/<%= soap[i].id %>?_method=DELETE" method="POST" onsubmit="return handlePasswordSubmit(this)">
                 
               <div class="soap-card-container">
-                  
                 <a class="soap-name text-decoration: none;"><%= soap[i].name %></a>
                 
                 <div class="flex-row">
-                  <a href="/soap/<%= soap[i].id %>"" class="button"  style="text-decoration: none;">View</a>
-                  <a href="/soap/<%= soap[i].id %>/edit" class="button"  style="text-decoration: none;">Edit</a>
+                  <a href="/soap/<%= soap[i].id %>" class="button" style="text-decoration: none;">View</a>
+                  <a href="/soap/<%= soap[i].id %>/edit" class="button" style="text-decoration: none;">Edit</a>
+                  
+                  <!-- The hidden input field that will carry the password dynamically -->
+                  <input type="hidden" name="adminPassword" class="secret-password-field" />
+                  
                   <input type="submit" value="Delete" class="button" />
                 </div>
                 <img src="<%= soap[i].image %>.jpg" alt="Soap Image">
               </div>
                 
-              </form>
-            </li>
-          <% } %>           
+            </form>
+          </li>
+          <% } %>
+                
         </ul>
       </div>
 
@@ -58,5 +63,43 @@
       <%- include('./partials/footer.ejs') %>
 
     </div>
+
+    <script>
+      function confirmDelete() {
+        // 1. This prompt runs inside the user's browser window
+        const password = prompt("Please enter the admin password to delete this recipe:");
+        
+        // 2. HARDCODE option for a quick frontend check:
+        // (Note: For a production app, hardcoding passwords on the frontend isn't secure, 
+        // but it's perfect for a quick, functional portfolio checkpoint!)
+        if (password === "DELETE_PASSWORD") { 
+          alert("Authorized! Soap recipe will be deleted.");
+          return true; // Allows the form to submit to your backend DELETE route
+        } else {
+          alert("You do not have authority. Contact the admin.");
+          return false; // Cancels the form submission completely
+        }
+      }
+    </script>
+    <script>
+      function handlePasswordSubmit(formElement) {
+        // 1. Pop up a single browser prompt window
+        const passwordInput = prompt("Please enter the admin password to delete this recipe:");
+        
+        // 2. If they hit cancel or leave it empty, abort the process entirely
+        if (passwordInput === null || passwordInput.trim() === "") {
+          return false; 
+        }
+        
+        // 3. Find the hidden password input field inside the specific form being submitted
+        const hiddenField = formElement.querySelector('.secret-password-field');
+        
+        // 4. Inject the password into the hidden field right before the form sends
+        hiddenField.value = passwordInput;
+        
+        return true; // Continues the form submission to your controller
+      }
+    </script>
+
   </body>
 </html>

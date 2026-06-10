@@ -9,6 +9,7 @@ const router = express.Router();
 // ******************************
 const Soap = require("../models/soap.js");
 const soapSeed = require("../models/soapSeed");
+const DELETE_PW = process.env.DELETE_PASSWORD;
 
 // * * * * * * * * *  * * * * * * * * * * *
 // * * * * * * * GET ROUTES * * * * * * * *
@@ -188,15 +189,21 @@ router.post("/soap", async (req, res) => {
 // ***********  DELETE ROUTE  *************
 // ****************************************
 router.delete("/soap/:id", async (req, res) => {
-  // console.log("in log/delete");
-  // res.send('deleting...');
+  // 1. Grab the password sent from the frontend hidden input field
+  const submittedPassword = req.body.adminPassword;
 
+  // 2. Validate it securely against your secret environment variable
+  if (submittedPassword !== DELETE_PW) {
+    return res.status(403).send("Unauthorized: Invalid admin password.");
+  }
+
+  // 3. If password matches, proceed with the database removal
   try {
     await Soap.findByIdAndDelete(req.params.id);
-    res.redirect("/soap"); //redirect to soap index page
+    res.redirect("/soap");
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error deleting soap");
+    res.status(500).send("An error occurred while deleting soap");
   }
 });
 

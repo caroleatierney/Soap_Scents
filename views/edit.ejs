@@ -139,12 +139,7 @@
             <div class="notes">
                 <label for="notes">Notes</label>
                 <textarea
-                    class ="inputNotes"
-                    id="soapNotes"
-                    name="notes"
-                    rows="1">
-                    <%= soap.notes%>
-                </textarea>
+                    class ="inputNotes" id="soapNotes" name="notes" rows="1"><%= soap.notes%></textarea>
                 <br>
             </div>
         </div>
@@ -173,11 +168,11 @@
                 </tr>
                 <tr>
                     <td><label for="minimumWaterNeeded">Minimum Water Needed</label></td>
-                    <td><input class ="inputSm" value="<%=soap.minimumWaterNeeded%>" required /></td>
+                    <td><input class ="inputSm" value="<%=soap.lyeCalculation.minimumWaterNeeded%>" name="minimumWaterNeeded" required /></td>
                 </tr>
                 <tr>
                     <td><label for="sodiumHydroxide">Sodium Hydroxide</label></td>
-                    <td><input class ="inputSm" value="<%=soap.sodiumHydroxide%>" required /></td>
+                    <td><input class ="inputSm" value="<%=soap.lyeCalculation.sodiumHydroxide%>" name="sodiumHydroxide" required /></td>
                 </tr>
             </table>
             <br>
