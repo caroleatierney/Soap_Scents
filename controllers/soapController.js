@@ -46,14 +46,6 @@ const DELETE_PW = process.env.DELETE_PASSWORD;
 //     console.log("Seed error:", err.message);
 //   });
 
-// Soap.create(soapSeed)
-//   .then((data) => {
-//     console.log("added provided soap data");
-//   })
-//   .catch((err) => {
-//     console.log(err.message);
-//   });
-
 // ****************************************
 // ************ INDEX ROUTE   *************
 // ****************************************
